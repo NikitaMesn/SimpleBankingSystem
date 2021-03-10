@@ -7,22 +7,18 @@ import java.util.List;
 public class Account {
     private String NumCard;
     private String pin;
-    private int balance;
+
 
     public Account() {
         this.NumCard = generateNumCard();
         this.pin = generatePin();
-        this.balance = 0;
-    }
 
+    }
     public void clear() {
         NumCard = "";
         pin = "";
     }
 
-    public void setBalance(int balance) {
-        this.balance = balance;
-    }
 
     public String getPin() {
         return pin;
@@ -31,6 +27,7 @@ public class Account {
     public String getNumCard() {
         return NumCard;
     }
+
 
     static String generateNumCard() {
         StringBuilder numCard = new StringBuilder();
@@ -51,12 +48,14 @@ public class Account {
                 isLuhn = true;
             }
         }
+
         return numCard.toString();
     }
 
     private static String generatePin() {
         StringBuilder code = new StringBuilder();
         List<Character> chars = new ArrayList<>(List.of('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'));
+
         for (int i = 0; i < 4; i++) {
             Collections.shuffle(chars);
             code.append(chars.get(i));
